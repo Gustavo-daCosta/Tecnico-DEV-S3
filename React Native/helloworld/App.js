@@ -1,43 +1,51 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TextInput, View, Image, Button, TouchableOpacity } from 'react-native';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <View style={[styles.card, styles.shadowProp]}>
-          <View>
-            <Text style={styles.heading}>Hello World!</Text>
-          </View>
-          <Text>Welcome to the mobile development world</Text>
+      <Image
+        source={require('./src/assets/VitalHub_Logo.png')}
+      />
+
+      <View>
+        <Text style={[styles.heading]}>Entrar ou criar conta</Text>
       </View>
+      <Text>Welcome to the mobile development world</Text>
+
+      <TextInput
+        style={styles.input}
+        defaultValue='Exemplo de input'
+      />
+      <TouchableOpacity style={styles.button}>
+        <Text>Botão</Text>
+      </TouchableOpacity>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#f9f1e6',
+    backgroundColor: '#fff',
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     padding: 15,
-  },
-  card: {
-    backgroundColor: 'white',
-    alignItem: 'center',
-    borderRadius: 8,
-    paddingVertical: 45,
-    paddingHorizontal: 25,
-    width: '100%',
-    marginVertical: 10,
-  },
-  shadowProp: {
-    elevation: 20,
-    shadowColor: 'black',
+    gap: 10,
   },
   heading: {
-    fontSize: 32,
+    fontSize: 24,
     fontWeight: '600',
     marginBottom: 13,
   },
+  input: {
+    width: '90%',
+    height: 40,
+    borderWidth: 1,
+    paddingHorizontal: 10,
+  },
+  button: {
+    width: '90%',
+    backgroundColor: 'lightblue',
+    alignItems: 'center'
+  }
 });
