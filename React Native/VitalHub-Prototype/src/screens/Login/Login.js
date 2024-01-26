@@ -63,7 +63,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#8C8A97',
     alignSelf: 'flex-start',
-    // marginLeft: '5%'
   },
   submitSection: {
     flex: 3,
