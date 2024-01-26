@@ -1,36 +1,66 @@
 import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
+import AppLoading from 'expo-app-loading';
+
+import {
+  useFonts,
+  MontserratAlternates_100Thin,
+  MontserratAlternates_200ExtraLight,
+  MontserratAlternates_300Light,
+  MontserratAlternates_400Regular,
+  MontserratAlternates_500Medium,
+  MontserratAlternates_600SemiBold,
+  MontserratAlternates_700Bold,
+  MontserratAlternates_800ExtraBold,
+  MontserratAlternates_900Black,
+} from '@expo-google-fonts/montserrat-alternates';
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Image
-        style={styles.img}
-        source={require('./src/assets/login-logo.png')}
-      />
+  let [fontsLoaded] = useFonts({
+    MontserratAlternates_100Thin,
+    MontserratAlternates_200ExtraLight,
+    MontserratAlternates_300Light,
+    MontserratAlternates_400Regular,
+    MontserratAlternates_500Medium,
+    MontserratAlternates_600SemiBold,
+    MontserratAlternates_700Bold,
+    MontserratAlternates_800ExtraBold,
+    MontserratAlternates_900Black,
+  });
 
-      <View style={styles.inputSection}>
-        <View style={styles.inputBox}>
-          <Text style={styles.label}>E-mail</Text>
-          <TextInput
-            style={styles.input}
-            placeholder='E-mail'
-            placeholderTextColor={'#f6f6f650'}
+  if (!fontsLoaded) {
+    return <AppLoading/>
+  } else {
+    return (
+      <View style={styles.container}>
+        <Image
+          style={styles.img}
+          source={require('./src/assets/login-logo.png')}
           />
+
+        <View style={styles.inputSection}>
+          <View style={styles.inputBox}>
+            <Text style={styles.label}>E-mail</Text>
+            <TextInput
+              style={styles.input}
+              placeholder='E-mail'
+              placeholderTextColor={'#f6f6f650'}
+              />
+          </View>
+          <View style={styles.inputBox}>
+            <Text style={styles.label}>Senha</Text>
+            <TextInput
+              style={styles.input}
+              placeholder='Senha'
+              placeholderTextColor={'#f6f6f650'}
+              />
+          </View>
+          <TouchableOpacity style={styles.button}>
+            <Text style={styles.buttonText}>ENTRAR</Text>
+          </TouchableOpacity>
         </View>
-        <View style={styles.inputBox}>
-          <Text style={styles.label}>Senha</Text>
-          <TextInput
-            style={styles.input}
-            placeholder='Senha'
-            placeholderTextColor={'#f6f6f650'}
-          />
-        </View>
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>ENTRAR</Text>
-        </TouchableOpacity>
       </View>
-    </View>
-  );
+    );
+  }
 }
 
 const styles = StyleSheet.create({
@@ -56,15 +86,14 @@ const styles = StyleSheet.create({
     gap: 40
   },
   inputBox: {
-    // borderWidth: 2,
     width: '100%',
-    // borderColor: '#f6f6f6',
     gap: 15
   },
   label: {
     color: '#f6f6f6',
     fontSize: 20,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    fontFamily: 'MontserratAlternates_500Medium',
   },
   input: {
     backgroundColor: '#0d122d',
@@ -75,6 +104,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     paddingLeft: 15,
     fontSize: 18,
+    fontFamily: 'MontserratAlternates_500Medium',
   },
   button: {
     height: 60,
@@ -87,6 +117,7 @@ const styles = StyleSheet.create({
   buttonText: {
     fontWeight: 'bold',
     fontSize: 18,
-    color: '#f6f6f6'
+    color: '#f6f6f6',
+    fontFamily: 'MontserratAlternates_700Bold'
   }
 });
