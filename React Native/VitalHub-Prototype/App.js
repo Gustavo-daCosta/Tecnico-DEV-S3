@@ -3,6 +3,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LoginScreen from './src/screens/Login/Login';
 import ConsultasScreen from './src/screens/Consultas/Consultas';
 import ForgotPasswordScreen from './src/screens/Login/ForgotPassword';
+import EmailCodeScreen from './src/screens/Login/EmailCode';
+import NewPasswordScreen from './src/screens/Login/NewPassword';
 
 const Stack = createNativeStackNavigator();
 
@@ -15,6 +17,10 @@ export default function App() {
         }}
       >
         <Stack.Screen
+          name='NovaSenha'
+          component={NewPasswordScreen}
+        />
+        <Stack.Screen
           name='Login'
           component={LoginScreen}
         />
@@ -22,6 +28,10 @@ export default function App() {
           name='EsqueciASenha'
           component={ForgotPasswordScreen}
         />
+        {/* <Stack.Screen
+          name='CodigoEmail'
+          component={EmailCodeScreen}
+        /> */}
         <Stack.Screen
           name='Consultas'
           component={ConsultasScreen}

@@ -2,6 +2,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import Input from '../../components/Input/Input';
 import Button from '../../components/Button/Button';
 import Banner from '../../components/Banner/Banner';
+import { Link } from '@react-navigation/native';
 
 const LoginScreen = ( { navigation } ) => {
   return (
@@ -10,10 +11,10 @@ const LoginScreen = ( { navigation } ) => {
       <View style={[styles.inputSection, styles.flex]}>
         <Input placeholder='Usuário ou E-mail' />
         <Input placeholder='Senha' />
-        <Text
+        <Link
           style={styles.forgotPassword}
-          onPress={() => navigation.navigate('EsqueciASenha')}
-        >Esqueceu sua senha?</Text>
+          to={{ screen: 'EsqueciASenha' }}
+        >Esqueceu sua senha?</Link>
       </View>
       <View style={[styles.submitSection, styles.flex]}>
         <Button
@@ -32,10 +33,10 @@ const LoginScreen = ( { navigation } ) => {
         />
         <Text>
           <Text style={styles.textSignUp}>Não tem conta? </Text>
-          <Text
-            style={[styles.textSignUp, styles.linkSignUp]}
-            onPress={() => navigation.navigate('Cadastro')}
-          >Crie uma conta agora!</Text>
+          <Link
+            style={styles.link}
+            to={{ screen: 'Cadastro' }}
+          >Crie uma conta agora!</Link>
         </Text>
       </View>
     </View>
@@ -72,11 +73,13 @@ const styles = StyleSheet.create({
   textSignUp: {
     color: '#4E4B59',
     fontWeight: '500',
-    fontSize: 16
+    fontSize: 16,
   },
-  linkSignUp: {
+  link: { 
     color: '#4D659D',
     textDecorationLine: 'underline',
+    fontWeight: '500',
+    fontSize: 16,
   }
 });
 

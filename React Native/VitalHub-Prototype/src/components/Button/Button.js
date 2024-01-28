@@ -38,7 +38,6 @@ const styles = (reversed) => StyleSheet.create({
     textTransform: 'uppercase',
     fontWeight: '500',
     fontSize: 16,
-    fontFamily: 'MontserratAlternates-Black'
   },
 });
 

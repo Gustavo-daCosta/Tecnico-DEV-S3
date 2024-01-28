@@ -17,7 +17,7 @@ import {
   MontserratAlternates_900Black,
 } from '@expo-google-fonts/montserrat-alternates';
 
-const ForgotPasswordScreen = () => {
+const ForgotPasswordScreen = ({ navigation }) => {
   let [fontsLoaded] = useFonts({
     MontserratAlternates_100Thin,
     MontserratAlternates_200ExtraLight,
@@ -39,10 +39,11 @@ const ForgotPasswordScreen = () => {
           <View style={styles.mainContent}>
             <Text style={styles.description} >
               Digite o seu e-mail cadastrado que enviaremos um link para recuperação de senha
-            </Text>
+            </Text>    
             <Input placeholder='Usuário ou E-mail' />
             <Button
               title={"Continuar"}
+              onPress={() => navigation.navigate('CodigoEmail')}
             />
           </View>
         </View>
