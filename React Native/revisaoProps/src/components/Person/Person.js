@@ -3,8 +3,8 @@ import { View, Text, StyleSheet } from "react-native";
 const Person = ({ name, age }) => {
   return (
     <View style={styles.container}>
-      <Text>Nome: {name}</Text>
-      <Text>Idade: {age}</Text>
+      <Text style={styles.title}>Nome: {name}</Text>
+      <Text style={styles.title}>Idade: {age}</Text>
     </View>
   );
 }
@@ -15,6 +15,10 @@ const styles = StyleSheet.create({
     padding: 10,
     margin: 10,
     borderRadius: 15,
+  },
+  title: {
+    fontFamily: 'CuteFont_400Regular',
+    fontSize: 24,
   }
 });
 
